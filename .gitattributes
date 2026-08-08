@@ -1,0 +1,12 @@
+# LF in the repository and on checkout, matching .editorconfig. The repo is
+# edited from both Windows and WSL.
+* text=auto eol=lf
+
+# Visual Studio rewrites solution files as CRLF with a BOM.
+*.sln text eol=crlf
+
+# Golden corpus and package assets: byte-exact, never transformed.
+*.wav binary
+*.png binary
+*.nupkg binary
+*.snupkg binary

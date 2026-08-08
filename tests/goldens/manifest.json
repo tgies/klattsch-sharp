@@ -1,0 +1,141 @@
+[
+  {
+    "name": "hello",
+    "text": "HH AH L OW",
+    "sampleRate": 48000
+  },
+  {
+    "name": "hello-world",
+    "text": "HH EH L OW W ER L D",
+    "sampleRate": 48000
+  },
+  {
+    "name": "single-vowel-a4",
+    "text": "b220 AH",
+    "sampleRate": 48000
+  },
+  {
+    "name": "plosives",
+    "text": "P AH T AH K AH",
+    "sampleRate": 48000
+  },
+  {
+    "name": "diphthongs",
+    "text": "AY EY OY",
+    "sampleRate": 48000
+  },
+  {
+    "name": "fricatives",
+    "text": "S SH F TH",
+    "sampleRate": 48000
+  },
+  {
+    "name": "nasals",
+    "text": "M N NG",
+    "sampleRate": 48000
+  },
+  {
+    "name": "syllables",
+    "text": "( HH AH ) ( L OW )",
+    "sampleRate": 48000
+  },
+  {
+    "name": "stress",
+    "text": "AH ! AH",
+    "sampleRate": 48000
+  },
+  {
+    "name": "steady-tone",
+    "text": "b120 AH AH AH AH",
+    "sampleRate": 48000
+  },
+  {
+    "name": "reset-dirs",
+    "text": "b200 r60 AH b r IY OW",
+    "sampleRate": 48000
+  },
+  {
+    "name": "pitch-sticky",
+    "text": "AH+30 IY OW-15 UW",
+    "sampleRate": 48000
+  },
+  {
+    "name": "pitch-transient",
+    "text": "AH(+30) IY OW(-15) UW",
+    "sampleRate": 48000
+  },
+  {
+    "name": "notes",
+    "text": "bC4 AH bF#3 IY bBb5 OW b=A-1 UW",
+    "sampleRate": 48000
+  },
+  {
+    "name": "syllable-mixed",
+    "text": "( P AH T ) IY ( L OW W )",
+    "sampleRate": 48000
+  },
+  {
+    "name": "combo",
+    "text": "b=D4 r130 v8 w5.5 m0.3 h0.25 t0.4 g0.75 s1.1 ( HH EH ) L' OW+20 , W ER L D .",
+    "sampleRate": 48000
+  },
+  {
+    "name": "ja-mokhtari",
+    "text": "K O N N I CH I HH A DX A A M E N",
+    "sampleRate": 48000,
+    "bank": "ja-mokhtari-2000"
+  },
+  {
+    "name": "ja-hecko",
+    "text": "K O N N I CH I HH A DX A A M E N",
+    "sampleRate": 48000,
+    "bank": "ja-hecko-2026"
+  },
+  {
+    "name": "bank-switch",
+    "text": "AH [bank=ja-mokhtari-2000] A I U [bank] AH IY",
+    "sampleRate": 48000
+  },
+  {
+    "name": "bank-switch-unknown",
+    "text": "AH [bank=no-such-bank] IY OW",
+    "sampleRate": 48000
+  },
+  {
+    "name": "extras-shadow",
+    "text": "AH [F1=900] IY [F1] OW [A1=0.4] , UW",
+    "sampleRate": 48000
+  },
+  {
+    "name": "extras-opaque",
+    "text": "AH [OQ=0.65] [FNZ=450] IY [FNZ] OW",
+    "sampleRate": 48000
+  },
+  {
+    "name": "voices",
+    "text": "b120 AH IY OW UW [voice=2] b180 S SH F",
+    "sampleRate": 48000
+  },
+  {
+    "name": "voices-directives",
+    "text": "v10 w6 AH [bank=ja-mokhtari-2000] A I [voice=7] [F1=800] b90 M N NG",
+    "sampleRate": 48000
+  },
+  {
+    "name": "dense-f0",
+    "scheduleFile": "dense-f0.schedule.json",
+    "sampleRate": 48000
+  },
+  {
+    "name": "combo-normalized",
+    "text": "b=D4 r130 v8 w5.5 m0.3 h0.25 t0.4 g0.75 s1.1 ( HH EH ) L' OW+20 , W ER L D .",
+    "sampleRate": 48000,
+    "peakNormalize": 0.95
+  },
+  {
+    "name": "fricatives-normalized",
+    "text": "S SH F TH",
+    "sampleRate": 48000,
+    "peakNormalize": 0.95
+  }
+]

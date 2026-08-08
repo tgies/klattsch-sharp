@@ -1,0 +1,88 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions: {}
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Pack and publish
+    runs-on: ubuntu-latest
+    environment: nuget-publish
+    permissions:
+      id-token: write   # NuGet trusted publishing
+      contents: write   # create the GitHub release and upload the packages
+    steps:
+      - name: Verify the tag is on main
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          TAG_SHA: ${{ github.sha }}
+          TAG_NAME: ${{ github.ref_name }}
+        run: |
+          status=$(gh api "repos/$REPO/compare/main...$TAG_SHA" --jq .status)
+          case "$status" in
+            identical|behind)
+              echo "$TAG_NAME is on main (compare status: $status)"
+              ;;
+            *)
+              echo "::error::$TAG_NAME is not on main (compare status: $status)"
+              exit 1
+              ;;
+          esac
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0             # MinVer needs full history
+          persist-credentials: false # nothing here pushes over git
+
+      - uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0
+        with:
+          dotnet-version: 8.0.x
+
+      - run: dotnet restore --locked-mode
+
+      - run: dotnet build -c Release --no-restore
+
+      - run: dotnet test -c Release --no-build
+
+      - run: dotnet pack -c Release --no-build --include-symbols /p:SymbolPackageFormat=snupkg --output ./artifacts
+
+      - name: NuGet trusted publishing login (OIDC)
+        id: nuget-login
+        uses: NuGet/login@8d196754b4036150537f80ac539e15c2f1028841 # v1.2.0
+        with:
+          user: tgies
+
+      - name: Push to NuGet
+        env:
+          NUGET_API_KEY: ${{ steps.nuget-login.outputs.NUGET_API_KEY }}
+        run: |
+          dotnet nuget push ./artifacts/*.nupkg \
+            --api-key "$NUGET_API_KEY" \
+            --source https://api.nuget.org/v3/index.json \
+            --skip-duplicate
+
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          TAG_NAME: ${{ github.ref_name }}
+        run: |
+          # A hyphen in a semver tag marks a pre-release e.g. v1.0.0-rc.1
+          prerelease=()
+          case "$TAG_NAME" in
+            *-*) prerelease=(--prerelease) ;;
+          esac
+          gh release create "$TAG_NAME" \
+            --repo "$REPO" \
+            --generate-notes \
+            "${prerelease[@]}" \
+            ./artifacts/*.nupkg ./artifacts/*.snupkg

@@ -1,0 +1,15 @@
+{
+  "name": "klattsch-sharp-tools",
+  "private": true,
+  "type": "module",
+  "description": "Parity tooling: renders golden WAVs and comparison output from the reference JS engine.",
+  "scripts": {
+    "goldens": "node render-goldens.mjs",
+    "compare": "node compare.mjs",
+    "gen-dense-schedule": "node gen-dense-schedule.mjs",
+    "f32-emulate": "node f32-emulate.mjs"
+  },
+  "dependencies": {
+    "klattsch": "0.8.0"
+  }
+}

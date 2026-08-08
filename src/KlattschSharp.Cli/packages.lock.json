@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "dependencies": {
+    "net8.0": {
+      "DotNet.ReproducibleBuilds": {
+        "type": "Direct",
+        "requested": "[1.*, )",
+        "resolved": "1.2.39",
+        "contentHash": "fcFN01tDTIQqDuTwr1jUQK/geofiwjG5DycJQOnC72i1SsLAk1ELe+apBOuZ11UMQG8YKFZG1FgvjZPbqHyatg=="
+      },
+      "MinVer": {
+        "type": "Direct",
+        "requested": "[6.*, )",
+        "resolved": "6.1.0",
+        "contentHash": "dGyb6EBQ87AhyagcXslfDGL/A+xbNtRD23CBjXoKo82TvjHqF2BBz61B6EBx/S117KUMB1PEUpRLrHcu6UjOhg=="
+      },
+      "klattschsharp.core": {
+        "type": "Project"
+      },
+      "klattschsharp.text": {
+        "type": "Project",
+        "dependencies": {
+          "KlattschSharp.Core": "[1.0.0, )"
+        }
+      },
+      "klattschsharp.wav": {
+        "type": "Project"
+      }
+    }
+  }
+}

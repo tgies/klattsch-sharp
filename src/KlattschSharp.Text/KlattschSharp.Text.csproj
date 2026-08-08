@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net8.0</TargetFrameworks>
+    <RootNamespace>KlattschSharp.Text</RootNamespace>
+    <AssemblyName>KlattschSharp.Text</AssemblyName>
+
+    <PackageId>KlattschSharp.Text</PackageId>
+    <Description>Text front-end for KlattschSharp: phoneme bank, input normalizer, and phoneme-string tokenizer.</Description>
+    <PackageTags>klatt;formant;synthesizer;speech;phoneme;arpabet;text</PackageTags>
+    <IsPackable>true</IsPackable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KlattschSharp.Core\KlattschSharp.Core.csproj" />
+  </ItemGroup>
+</Project>

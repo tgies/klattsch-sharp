@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net8.0</TargetFrameworks>
+    <RootNamespace>KlattschSharp</RootNamespace>
+    <AssemblyName>KlattschSharp.Core</AssemblyName>
+
+    <PackageId>KlattschSharp.Core</PackageId>
+    <Description>Realtime-safe parallel-formant speech synthesis core. Port of JS klattsch.</Description>
+    <PackageTags>klatt;formant;synthesizer;speech;dsp;audio</PackageTags>
+    <IsPackable>true</IsPackable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="KlattschSharp.Tests" />
+  </ItemGroup>
+</Project>
