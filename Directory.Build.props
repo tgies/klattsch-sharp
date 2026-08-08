@@ -30,6 +30,7 @@
 
   <PropertyGroup>
     <MinVerTagPrefix>v</MinVerTagPrefix>
+    <DebugType>portable</DebugType>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
