@@ -10,9 +10,9 @@
       },
       "MinVer": {
         "type": "Direct",
-        "requested": "[6.*, )",
-        "resolved": "6.1.0",
-        "contentHash": "dGyb6EBQ87AhyagcXslfDGL/A+xbNtRD23CBjXoKo82TvjHqF2BBz61B6EBx/S117KUMB1PEUpRLrHcu6UjOhg=="
+        "requested": "[8.*, )",
+        "resolved": "8.0.0",
+        "contentHash": "AJy/KVjXgUbgjf6HiI8wAk4DSSq0SCmvXQF8aU6IB+pnIQq+YJvofvMczug2hqO8yEvnQY557ryew66KPpyCsA=="
       },
       "klattschsharp.core": {
         "type": "Project"
